@@ -9,6 +9,7 @@ pipeline {
                         sh '''
                             export DOCKER_HOST=tcp://host.docker.internal:2375
                             docker login -u $USERNAME -p $PASSWORD
+                            docker build --platform linux/amd64 -t islamgje/node-web-app .
                             docker push islamgje/node-web-app
                         '''
                     }
